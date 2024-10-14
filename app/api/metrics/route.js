@@ -21,4 +21,3 @@ export async function POST(request) {
   return NextResponse.json(data);
 }
 
-// Implement PUT and DELETE methods as needed
