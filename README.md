@@ -1,4 +1,4 @@
-# Intellify\`Intellify OA - Dashboard Application Documentation
+# Intellify OA - Dashboard Application Documentation
 
 ## Problem Statement
 
@@ -57,7 +57,7 @@ intellify-OA/
 
 ```
 git clone https://github.com/RudradevArya/Intellify-OA.git
-cd Intellify-OA
+cd
 ```
 
 2. Install dependencies:
@@ -146,6 +146,47 @@ npm run dev
 
 * **Response**: Created metric object or error message
 
+## Supabase Setup
+
+1. Create a Supabase project at https://supabase.com
+
+2. In your Supabase project, create a new table named `dashboard_metrics` with the following structure:
+   - `id` (int8, primary key)
+   - `created_at` (timestamptz, default: now())
+   - `metric_name` (text)
+   - `metric_value` (float8)
+   - `user_id` (uuid, foreign key to auth.users)
+
+3. Set up Row Level Security (RLS) policies:
+   ```sql
+   ALTER TABLE public.dashboard_metrics ENABLE ROW LEVEL SECURITY;
+
+   CREATE POLICY "Users can insert their own metrics" 
+   ON public.dashboard_metrics FOR INSERT 
+   TO authenticated 
+   WITH CHECK (auth.uid() = user_id);
+
+   CREATE POLICY "Users can view all metrics" 
+   ON public.dashboard_metrics FOR SELECT 
+   TO authenticated 
+   USING (true);
+   ```
+
+4. In Supabase project settings:
+   - Go to API settings
+   - Find your project URL and anon/public key
+   - Add these to your `.env.local` file:
+     ```
+     NEXT_PUBLIC_SUPABASE_URL=your_project_url
+     NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+     ```
+
+5. Enable Email Auth in Authentication > Providers
+
+6. Update allowed callback URLs in Authentication > URL Configuration:
+   - Add your local development URL (e.g., http://localhost:3000)
+   - Add your production URL after deployment
+ - 
 ## Task List
 
 1. Setup and Authentication (25%)
@@ -174,15 +215,12 @@ npm run dev
     * [x] Write documentation on how to set up and run the project locally
     * [x] Include API documentation for backend services
 
+
+## My Detailed Approach and thinking
+
+[Link to My approach to the assessment (another markdown file)](Assignment-Approach.md)
+
+
 ## Outputs
 
-* Starting up
-![Starting up](https://github.com/RudradevArya/FinTarget-OA/blob/main/outputs/1.png)
-* cURL Outputs
-![cURL Outputs](https://github.com/RudradevArya/FinTarget-OA/blob/main/outputs/2.png)
-* Postman Output
-![Postman Output](https://github.com/RudradevArya/FinTarget-OA/blob/main/outputs/3.png)
-* Task\_log log file
-![Task_log log file](https://github.com/RudradevArya/FinTarget-OA/blob/main/outputs/4.png)
-* Redis user queue monitoring
-![Redis user queue monitoring](https://github.com/RudradevArya/FinTarget-OA/blob/main/outputs/5.png)
+![Animated gif demo](demo/demo.gif)
