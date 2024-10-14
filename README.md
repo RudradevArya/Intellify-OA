@@ -1,9 +1,8 @@
-# Intellify OA - Dashboard Application Documentation
+# Intellify\`Intellify OA - Dashboard Application Documentation
 
 ## Problem Statement
 
 [Detailed Problem Statement](https://drive.google.com/file/d/1gkzlQtG9dWnwb8Ko1aQ8KnWNYfCU2Jby/view?usp=sharing)
-
 
 ## Prerequisites
 
@@ -57,8 +56,8 @@ intellify-OA/
 1. Clone the repository:
 
 ```
-git clone [your-repo-url]
-cd [your-project-name]
+git clone https://github.com/RudradevArya/Intellify-OA.git
+cd Intellify-OA
 ```
 
 2. Install dependencies:
@@ -81,7 +80,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 npm run dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. Open [http://localhost:3000](http://localhost:3000/signup) in your browser.
 
 ## API Documentation
 
@@ -90,6 +89,7 @@ npm run dev
 #### Sign Up
 
 * **Endpoint**: `/api/auth/signup`
+* `https://intellify-oa.vercel.app/signup`
 * **Method**: POST
 * **Body**:
 * Note : you'll be redirected to login page after successful signup , and during re-login you'll have to go through enter your credentials 2 times once at `signup` and `login` (due to time constriants)
@@ -106,6 +106,7 @@ npm run dev
 #### Sign In
 
 * **Endpoint**: `/api/auth/login`
+* `https://intellify-oa.vercel.app/login`
 * **Method**: POST
 * **Body**:
 
@@ -123,6 +124,7 @@ npm run dev
 #### Get Metrics
 
 * **Endpoint**: `/api/metrics`
+* `https://intellify-oa.vercel.app/dashboard`
 * **Method**: GET
 * **Authentication**: Required
 * **Response**: Array of metric objects
@@ -130,6 +132,7 @@ npm run dev
 #### Add Metric
 
 * **Endpoint**: `/api/metrics`
+* `https://intellify-oa.vercel.app/dashboard`
 * **Method**: POST
 * **Authentication**: Required
 * **Body**:
@@ -143,34 +146,33 @@ npm run dev
 
 * **Response**: Created metric object or error message
 
-. Setup and Authentication (25%)
-   - [x] Set up a new Next.js project using the App Router
-   - [x] Implement user authentication using Supabase Auth
-   - [x] Create a login page
-   - [x] Create a signup page
-   - [x] Implement protected routes
+## Task List
+
+1. Setup and Authentication (25%)
+
+* [x] Set up a new Next.js project using the App Router
+* [x] Implement user authentication using Supabase Auth
+* [x] Create a login page
+* [x] Create a signup page
+* [x] Implement protected routes
 
 2. Dashboard Implementation (30%)
-   - [x] Design and implement a main dashboard page
-   - [x] Use Recharts to create a line chart
-   - [x] Use Recharts to create a bar chart
-   - [x] Use Recharts to create a pie chart
-   - [x] Implement real-time data updates for at least one widget
-
+    * [x] Design and implement a main dashboard page
+    * [x] Use Recharts to create a line chart
+    * [x] Use Recharts to create a bar chart
+    * [ ] Use Recharts to create a pie chart
+    * [x] Implement real-time data updates for at least one widget
 3. Data Management (20%)
-   - [x] Set up a Supabase database to store relevant data
-   - [x] Implement API routes in Next.js to handle data operations (CRUD)
-   - [x] Create a form to allow users to input new data
-
+    * [x] Set up a Supabase database to store relevant data
+    * [x] Implement API routes in Next.js to handle data operations (CRUD)
+    * [x] Create a form to allow users to input new data
 4. Responsive Design (15%)
-   - [x] Ensure the dashboard is responsive on mobile devices
-   - [ ] Implement a collapsible sidebar for navigation on smaller screens
-
+    * [x] Ensure the dashboard is responsive on mobile devices
+    * [ ] Implement a collapsible sidebar for navigation on smaller screens
 5. Deployment and Documentation (10%)
-   - [x] Deploy the application to Vercel
-   - [x] Write documentation on how to set up and run the project locally
-   - [x] Include API documentation for backend services
-
+    * [x] Deploy the application to Vercel
+    * [x] Write documentation on how to set up and run the project locally
+    * [x] Include API documentation for backend services
 
 ## Outputs
 
